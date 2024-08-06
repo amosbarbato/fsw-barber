@@ -14,18 +14,18 @@ datasource db {
 }
 
 model User {
-  id            String @id @default(cuid())
+  id            String @id @default(uuid())
   email         String 
   name          String
+  bookings      Booking[]
   createAt      DateTime @default(now())
   updateAt      DateTime @updatedAt
-  Booking       Booking[]
 }
 
 model Barbershop {
   id            String @id @default(uuid())
   name          String
-  adress        String
+  address       String
   phones        String[]
   description   String
   imageUrl      String
