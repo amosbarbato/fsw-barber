@@ -2,7 +2,7 @@
 - [X] Seeding do Banco (colocar dados)
 - [X] Introdução ao Next.js
 - [X] Tailwind e Shadcn
-- [ ] Git Wooks
+- [X] Git Wooks
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
