@@ -18,7 +18,7 @@ export const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
             src={barbershop.imageUrl}
             alt={barbershop.name}
             fill
-            className="rounded-2xl object-cover"
+            className="rounded-xl object-cover"
           />
           <Badge
             className="absolute left-2 top-2 space-x-1"
