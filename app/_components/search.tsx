@@ -10,7 +10,7 @@ import { Button } from "./ui/button"
 import { SearchIcon } from "lucide-react"
 
 const formSchema = z.object({
-  search: z.string().trim().min(1, {
+  title: z.string().trim().min(1, {
     message: "Digite algo para buscar",
   }),
 })
@@ -19,13 +19,13 @@ const Search = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      search: "",
+      title: "",
     },
   })
   const router = useRouter()
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    router.push(`/barbershops?search=${data.search}`)
+    router.push(`/barbershops?title=${data.title}`)
   }
 
   return (
@@ -33,7 +33,7 @@ const Search = () => {
       <form className="flex gap-2" onClick={form.handleSubmit(handleSubmit)}>
         <FormField
           control={form.control}
-          name="search"
+          name="title"
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
