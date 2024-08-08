@@ -1,10 +1,17 @@
 import Link from "next/link"
-import { Avatar, AvatarImage } from "./ui/avatar"
 import { Button } from "./ui/button"
 import { SheetClose, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"
-import { CalendarIcon, HomeIcon, LogOutIcon } from "lucide-react"
+import { CalendarIcon, HomeIcon, LogInIcon, LogOutIcon } from "lucide-react"
 import { quickSearchOptions } from "../_constants/search"
 import Image from "next/image"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog"
 
 export const SidebarSheet = () => {
   return (
@@ -13,14 +20,40 @@ export const SidebarSheet = () => {
         <SheetTitle className="text-left">Menu</SheetTitle>
       </SheetHeader>
 
-      <div className="flex items-center gap-3 border-b border-solid py-5">
-        <Avatar>
+      <div className="flex items-center justify-between gap-3 border-b border-solid py-5">
+        <h2>Olá, faça seu login!</h2>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button size="icon">
+              <LogInIcon />
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="w-[90%]">
+            <DialogHeader>
+              <DialogTitle>Faça login na platafoma</DialogTitle>
+              <DialogDescription>
+                Conecte-se usando sua conta do Google.
+              </DialogDescription>
+            </DialogHeader>
+            <Button variant="outline" className="gap-1 font-bold">
+              <Image
+                src="/google.svg"
+                alt="Fazer login com o Google"
+                width={16}
+                height={16}
+              />
+              Google
+            </Button>
+          </DialogContent>
+        </Dialog>
+
+        {/* <Avatar>
           <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
         </Avatar>
         <div>
           <p className="font-bold">Felipe Rocha</p>
           <p className="text-xs">felipe@email.com</p>
-        </div>
+        </div> */}
       </div>
 
       <div className="flex flex-col gap-2 border-b border-solid py-5">
