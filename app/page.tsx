@@ -7,8 +7,11 @@ import BookingItem from "./_components/booking-item"
 import { quickSearchOptions } from "./_constants/search"
 import Search from "./_components/search"
 import Link from "next/link"
+import { getServerSession } from "next-auth"
+import { authOptions } from "./_lib/auth"
 
 const Home = async () => {
+  const session = await getServerSession(authOptions)
   const barbershops = await db.barbershop.findMany({})
   const popularBarbershops = await db.barbershop.findMany({
     orderBy: {
@@ -16,21 +19,38 @@ const Home = async () => {
     },
   })
 
+  const confirmedBookings = session?.user
+    ? await db.booking.findMany({
+        where: {
+          userId: (session.user as any).id,
+          date: {
+            gte: new Date(),
+          },
+        },
+        include: {
+          service: {
+            include: {
+              barbershop: true,
+            },
+          },
+        },
+        orderBy: {
+          date: "asc",
+        },
+      })
+    : []
+
   return (
     <div>
-      {/* header */}
       <Header />
       <div className="p-5">
-        {/* text */}
         <h2 className="text-xl font-bold">Olá, Felipe!</h2>
         <p>Segunda-feira, 05 de agosto.</p>
 
-        {/* search */}
         <div className="mt-6">
           <Search />
         </div>
 
-        {/* fast search */}
         <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((option) => (
             <Button
@@ -52,7 +72,6 @@ const Home = async () => {
           ))}
         </div>
 
-        {/* image */}
         <div className="relative mt-6 h-[150px] w-full">
           <Image
             src="/banner-01.png"
@@ -62,8 +81,14 @@ const Home = async () => {
           />
         </div>
 
-        {/* booking */}
-        <BookingItem />
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+          Agendamentos
+        </h2>
+        <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+          {confirmedBookings.map((booking) => (
+            <BookingItem key={booking.id} booking={booking} />
+          ))}
+        </div>
 
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
           Recomendados
