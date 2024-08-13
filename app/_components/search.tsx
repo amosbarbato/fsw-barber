@@ -37,18 +37,14 @@ const Search = () => {
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
-                <Input
-                  placeholder="Faça uma busca..."
-                  {...field}
-                  className="w-full"
-                />
+                <Input placeholder="Buscar" {...field} className="w-full" />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">
-          <SearchIcon />
+        <Button type="submit" size="button">
+          <SearchIcon size={20} />
         </Button>
       </form>
     </Form>

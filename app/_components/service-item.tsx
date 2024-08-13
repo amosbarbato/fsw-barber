@@ -24,7 +24,7 @@ import { getBookings } from "../_actions/get-booking"
 import { Dialog, DialogContent } from "./ui/dialog"
 import SignInDialog from "./sign-in-dialog"
 import BookingSummary from "./booking.summary"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 
 interface ServiceItemProps {
   service: BarbershopService
@@ -167,7 +167,7 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
   return (
     <>
-      <Card>
+      <Card className="rounded-lg">
         <CardContent className="flex items-center gap-3 p-3">
           <div className="relative max-h-[110px] min-h-[110px] min-w-[110px] max-w-[110px]">
             <Image
@@ -195,6 +195,7 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                 onOpenChange={handleBookingSheetOpenChange}
               >
                 <Button
+                  className="rounded-lg"
                   variant="secondary"
                   size="sm"
                   onClick={handleBookingClick}
@@ -202,8 +203,10 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   Reservar
                 </Button>
                 <SheetContent className="px-0">
-                  <SheetHeader>
-                    <SheetTitle>Fazer a Reserva</SheetTitle>
+                  <SheetHeader className="border-b border-solid pb-6">
+                    <SheetTitle className="pl-5 text-left">
+                      Fazer a Reserva
+                    </SheetTitle>
                   </SheetHeader>
 
                   <div className="border-b border-solid py-5">
@@ -220,17 +223,24 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                         },
                         cell: {
                           width: "100%",
+                          background: "transparent",
                         },
                         button: {
                           width: "100%",
+                          border: "none",
+                          borderRadius: "50%",
                         },
                         nav_button_previous: {
-                          width: "32px",
-                          height: "32px",
+                          width: "28px",
+                          height: "28px",
+                          border: "1px solid #26272B",
+                          borderRadius: "8px",
                         },
                         nav_button_next: {
-                          width: "32px",
-                          height: "32px",
+                          width: "28px",
+                          height: "28px",
+                          border: "1px solid #26272B",
+                          borderRadius: "8px",
                         },
                         caption: {
                           textTransform: "capitalize",

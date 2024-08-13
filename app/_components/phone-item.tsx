@@ -21,6 +21,7 @@ export const PhoneItem = ({ phone }: PhoneItemProps) => {
       </div>
       <Button
         variant="outline"
+        className="rounded-lg"
         size="sm"
         onClick={() => handleCopyPhoneClick(phone)}
       >

@@ -41,7 +41,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         <Button
           size="icon"
           variant="secondary"
-          className="absolute left-4 top-4"
+          className="absolute left-4 top-4 rounded-lg"
           asChild
         >
           <Link href="/">
@@ -53,8 +53,8 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           <SheetTrigger asChild>
             <Button
               size="icon"
-              variant="outline"
-              className="absolute right-4 top-4"
+              variant="secondary"
+              className="absolute right-4 top-4 rounded-lg"
             >
               <MenuIcon size={20} />
             </Button>

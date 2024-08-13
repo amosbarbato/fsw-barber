@@ -15,7 +15,7 @@ export const SidebarSheet = () => {
   const handleLogoutClick = () => signOut()
 
   return (
-    <SheetContent className="overflow-y-auto">
+    <SheetContent className="w-[90%] overflow-y-auto">
       <SheetHeader>
         <SheetTitle className="text-left">Menu</SheetTitle>
       </SheetHeader>
@@ -51,14 +51,14 @@ export const SidebarSheet = () => {
 
       <div className="flex flex-col gap-2 border-b border-solid py-5">
         <SheetClose asChild>
-          <Button className="justify-start gap-3" variant="ghost" asChild>
+          <Button className="justify-start gap-3" variant="link" asChild>
             <Link href="/">
               <HomeIcon size={16} />
               Início
             </Link>
           </Button>
         </SheetClose>
-        <Button className="justify-start gap-2" variant="ghost" asChild>
+        <Button className="justify-start gap-2" variant="link" asChild>
           <Link href="/bookings">
             <CalendarIcon size={16} />
             Agendamento
@@ -69,7 +69,7 @@ export const SidebarSheet = () => {
       <div className="flex flex-col gap-2 border-b border-solid py-5">
         {quickSearchOptions.map((option) => (
           <SheetClose key={option.title} asChild>
-            <Button className="justify-start gap-3" variant="ghost" asChild>
+            <Button className="justify-start gap-3" variant="link" asChild>
               <Link href="/">
                 <Image
                   alt={option.title}
@@ -87,7 +87,7 @@ export const SidebarSheet = () => {
       {data?.user && (
         <div className="flex flex-col gap-2 py-5">
           <Button
-            variant="ghost"
+            variant="link"
             className="justify-start gap-3"
             onClick={handleLogoutClick}
           >

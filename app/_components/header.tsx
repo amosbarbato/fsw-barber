@@ -16,7 +16,7 @@ export const Header = () => {
 
         <Sheet>
           <SheetTrigger asChild>
-            <Button size="icon" variant="outline">
+            <Button size="icon" variant="none">
               <MenuIcon size={20} />
             </Button>
           </SheetTrigger>
