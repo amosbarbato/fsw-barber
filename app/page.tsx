@@ -28,7 +28,7 @@ const Home = async () => {
     <div>
       <Header />
       <div className="p-5 xl:p-0">
-        <div className="xl:bg-opacity-3 xl:grid xl:grid-cols-2 xl:border-b xl:border-solid xl:border-input xl:bg-pattern xl:bg-cover xl:bg-no-repeat xl:px-[98px]">
+        <div className="xl:grid xl:grid-cols-2 xl:border-b xl:border-solid xl:border-input xl:bg-pattern xl:bg-cover xl:bg-no-repeat xl:px-[98px]">
           <div className="xl:mr-32 xl:py-16">
             <h2 className="text-xl font-bold xl:text-2xl">
               Olá, {session?.user ? session?.user?.name : "bem vindo"}!
@@ -108,13 +108,15 @@ const Home = async () => {
           </div>
         </div>
 
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 xl:mb-5 xl:mt-10 xl:text-sm">
-          Populares
-        </h2>
-        <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
-          {popularBarbershops.map((barbershop) => (
-            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-          ))}
+        <div className="xl:px-[98px]">
+          <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 xl:mb-5 xl:mt-10 xl:text-sm">
+            Populares
+          </h2>
+          <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
+            {popularBarbershops.map((barbershop) => (
+              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

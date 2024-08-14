@@ -10,7 +10,7 @@ import { NavbarSheet } from "./navbar-sheet"
 export const Header = () => {
   return (
     <Card>
-      <CardContent className="flex flex-row items-center justify-between p-5 xl:px-28">
+      <CardContent className="flex flex-row items-center justify-between p-5 xl:px-24">
         <Link href="/">
           <Image
             src="/logo.png"

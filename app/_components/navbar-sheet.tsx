@@ -16,7 +16,7 @@ export const NavbarSheet = () => {
       {data?.user ? (
         <Button
           variant="none"
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 px-0"
           onClick={handleLogoutClick}
         >
           <Avatar className="h-9 w-9">
