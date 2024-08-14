@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={nunito.className}>
         <AuthProvider>
           <div className="flex h-full flex-col">
-            <div className="flex-1">{children}</div>
+            <div className="flex-1 xl:mb-[100px]">{children}</div>
             <Footer />
           </div>
         </AuthProvider>
