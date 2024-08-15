@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import { Card, CardContent } from "./ui/card"
 import { Button } from "./ui/button"
@@ -6,8 +8,13 @@ import { Sheet, SheetTrigger } from "./ui/sheet"
 import { SidebarSheet } from "./sidebar-sheet"
 import Link from "next/link"
 import { NavbarSheet } from "./navbar-sheet"
+import Search from "./search"
+import { usePathname } from "next/navigation"
 
 export const Header = () => {
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
+
   return (
     <Card>
       <CardContent className="flex flex-row items-center justify-between p-5 xl:px-24">
@@ -20,6 +27,10 @@ export const Header = () => {
             className="xl:my-[10px]"
           />
         </Link>
+
+        <div className="max-lg:hidden xl:w-[62%] xl:px-11">
+          {!isHomePage && <Search />}
+        </div>
 
         <div>
           <NavbarSheet />

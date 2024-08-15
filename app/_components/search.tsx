@@ -30,7 +30,10 @@ const Search = () => {
 
   return (
     <Form {...form}>
-      <form className="flex gap-2" onClick={form.handleSubmit(handleSubmit)}>
+      <form
+        className="flex gap-2 xl:w-full"
+        onClick={form.handleSubmit(handleSubmit)}
+      >
         <FormField
           control={form.control}
           name="title"
