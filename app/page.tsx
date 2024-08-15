@@ -100,7 +100,7 @@ const Home = async () => {
             <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 xl:mb-5 xl:mt-0 xl:text-sm">
               Recomendados
             </h2>
-            <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
+            <div className="flex gap-4 overflow-auto xl:gap-5 [&::-webkit-scrollbar]:hidden">
               {barbershops.map((barbershop) => (
                 <BarbershopItem key={barbershop.id} barbershop={barbershop} />
               ))}
@@ -112,7 +112,7 @@ const Home = async () => {
           <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 xl:mb-5 xl:mt-10 xl:text-sm">
             Populares
           </h2>
-          <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-4 overflow-auto xl:gap-5 [&::-webkit-scrollbar]:hidden">
             {popularBarbershops.map((barbershop) => (
               <BarbershopItem key={barbershop.id} barbershop={barbershop} />
             ))}
