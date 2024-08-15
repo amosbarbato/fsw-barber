@@ -142,11 +142,11 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
                   </ul>
                   <ul className="space-y-[10px] text-right">
                     <li>Fechado</li>
-                    <li>09:00 - 21:00</li>
-                    <li>09:00 - 21:00</li>
-                    <li>09:00 - 21:00</li>
-                    <li>09:00 - 21:00</li>
-                    <li>08:00 - 17:00</li>
+                    <li>09:00 - 18:00</li>
+                    <li>09:00 - 18:00</li>
+                    <li>09:00 - 18:00</li>
+                    <li>09:00 - 18:00</li>
+                    <li>08:00 - 18:00</li>
                     <li>Fechado</li>
                   </ul>
                 </div>

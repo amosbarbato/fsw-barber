@@ -216,33 +216,20 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                       selected={selectedDay}
                       onSelect={handleDateSelect}
                       fromDate={new Date()}
+                      classNames={{
+                        root: `px-5`,
+                        caption: `flex justify-between items-center`,
+                        nav: `space-x-5`,
+                        nav_button: `bg-transparent hover:bg-input border border-input relative p-[6px] rounded-lg`,
+                        head_row: `flex w-full gap-3`,
+                        row: `flex w-full mt-2 gap-3`,
+                        day: `bg-transparent hover:bg-input h-9 w-9 rounded-full`,
+                      }}
                       styles={{
-                        head_cell: {
-                          width: "100%",
-                          textTransform: "capitalize",
-                        },
                         cell: {
-                          width: "100%",
                           background: "transparent",
                         },
-                        button: {
-                          width: "100%",
-                          border: "none",
-                          borderRadius: "50%",
-                        },
-                        nav_button_previous: {
-                          width: "28px",
-                          height: "28px",
-                          border: "1px solid #26272B",
-                          borderRadius: "8px",
-                        },
-                        nav_button_next: {
-                          width: "28px",
-                          height: "28px",
-                          border: "1px solid #26272B",
-                          borderRadius: "8px",
-                        },
-                        caption: {
+                        month: {
                           textTransform: "capitalize",
                         },
                       }}
@@ -281,6 +268,7 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   )}
                   <SheetFooter className="mt-5 px-5">
                     <Button
+                      className="w-full"
                       onClick={handleCreateBooking}
                       disabled={!selectedDay || !selectedTime}
                     >
