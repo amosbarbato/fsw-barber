@@ -32,7 +32,7 @@ export const Header = () => {
           {!isHomePage && <Search />}
         </div>
 
-        <div>
+        <div className="max-lg:hidden">
           <NavbarSheet />
         </div>
 

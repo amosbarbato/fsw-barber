@@ -202,7 +202,7 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                 >
                   Reservar
                 </Button>
-                <SheetContent className="px-0">
+                <SheetContent className="overflow-y-scroll px-0">
                   <SheetHeader className="border-b border-solid pb-6">
                     <SheetTitle className="pl-5 text-left">
                       Fazer a Reserva
@@ -266,7 +266,7 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                       />
                     </div>
                   )}
-                  <SheetFooter className="mt-5 px-5">
+                  <SheetFooter className="mt-5 px-5 xl:mt-0">
                     <Button
                       className="w-full"
                       onClick={handleCreateBooking}

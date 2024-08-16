@@ -70,7 +70,7 @@ export const SidebarSheet = () => {
         {quickSearchOptions.map((option) => (
           <SheetClose key={option.title} asChild>
             <Button className="justify-start gap-3" variant="link" asChild>
-              <Link href="/">
+              <Link href={`/barbershops?service=${option.title}`}>
                 <Image
                   alt={option.title}
                   src={option.imageUrl}
