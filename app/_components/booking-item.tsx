@@ -106,7 +106,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
         </Card>
       </SheetTrigger>
 
-      <SheetContent className="w-[90%] px-0">
+      <SheetContent className="w-[90%] overflow-y-scroll px-0 xl:w-full">
         <SheetHeader className="border-b border-solid pb-6">
           <SheetTitle className="pl-5 text-left">
             Informaçoes da Reserva
@@ -157,9 +157,9 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             </div>
           </div>
 
-          <SheetFooter className="mt-6">
-            <div className="flex items-center gap-3">
-              <SheetClose asChild>
+          <SheetFooter className="mt-6 xl:justify-between">
+            <div className="flex items-center gap-3 xl:flex-1">
+              <SheetClose asChild className="xl:hidden">
                 <Button variant="secondary" className="w-full rounded-lg">
                   Voltar
                 </Button>
@@ -171,10 +171,10 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                       Cancelar Reserva
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="w-[90%]">
-                    <DialogHeader className="space-y-2">
+                  <DialogContent className="w-[90%] xl:w-80">
+                    <DialogHeader className="items-center space-y-2">
                       <DialogTitle>Cancelar Reserva</DialogTitle>
-                      <DialogDescription>
+                      <DialogDescription className="text-center">
                         Tem certeza que deseja cancelar esse agendamento?
                       </DialogDescription>
                     </DialogHeader>
