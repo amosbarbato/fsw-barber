@@ -28,82 +28,84 @@ const Home = async () => {
     <div>
       <Header />
       <div className="p-5 xl:p-0">
-        <div className="xl:grid xl:grid-cols-2 xl:border-b xl:border-solid xl:border-input xl:bg-pattern xl:bg-cover xl:bg-no-repeat xl:px-[98px]">
-          <div className="xl:mr-32 xl:py-16">
-            <h2 className="text-xl font-bold xl:text-2xl">
-              Olá, {session?.user ? session?.user?.name : "bem vindo"}!
-            </h2>
-            <p>
-              {/* Segunda-feira, 05 de agosto. */}
-              <span className="capitalize xl:text-sm">
-                {format(new Date(), "EE, dd", { locale: ptBR })}
-              </span>
-              <span>&nbsp;de&nbsp;</span>
-              <span className="capitalize xl:text-sm">
-                {format(new Date(), "MMMM", { locale: ptBR })}
-              </span>
-            </p>
+        <div className="xl:border-b xl:border-solid xl:border-input xl:bg-pattern xl:bg-cover xl:bg-no-repeat">
+          <div className="xl:grid xl:grid-cols-2 xl:bg-background/80 xl:px-[98px]">
+            <div className="xl:mr-32 xl:py-16">
+              <h2 className="text-xl font-bold xl:text-2xl">
+                Olá, {session?.user ? session?.user?.name : "bem vindo"}!
+              </h2>
+              <p>
+                {/* Segunda-feira, 05 de agosto. */}
+                <span className="capitalize xl:text-sm">
+                  {format(new Date(), "EE, dd", { locale: ptBR })}
+                </span>
+                <span>&nbsp;de&nbsp;</span>
+                <span className="capitalize xl:text-sm">
+                  {format(new Date(), "MMMM", { locale: ptBR })}
+                </span>
+              </p>
 
-            <div className="mt-6 xl:mt-8">
-              <Search />
+              <div className="mt-6 xl:mt-8">
+                <Search />
+              </div>
+
+              <div className="mt-6 flex gap-3 overflow-x-scroll xl:hidden [&::-webkit-scrollbar]:hidden">
+                {quickSearchOptions.map((option) => (
+                  <Button
+                    className="min-w-fit gap-2"
+                    variant="ghost"
+                    size="tag"
+                    key={option.title}
+                    asChild
+                  >
+                    <Link href={`/barbershops?service=${option.title}`}>
+                      <Image
+                        src={option.imageUrl}
+                        alt={option.title}
+                        height={16}
+                        width={16}
+                      />
+                      {option.title}
+                    </Link>
+                  </Button>
+                ))}
+              </div>
+
+              <div className="relative mt-6 h-[150px] w-full xl:hidden">
+                <Image
+                  src="/banner-01.png"
+                  alt="Agende nos melhores com FSW Barber"
+                  fill
+                  className="rounded-xl object-cover"
+                />
+              </div>
+
+              {confirmedBookings.length > 0 && (
+                <>
+                  <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 xl:mb-5 xl:mt-9 xl:text-sm">
+                    Agendamentos
+                  </h2>
+                  <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+                    {confirmedBookings.map((booking) => (
+                      <BookingItem
+                        key={booking.id}
+                        booking={JSON.parse(JSON.stringify(booking))}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
 
-            <div className="mt-6 flex gap-3 overflow-x-scroll xl:hidden [&::-webkit-scrollbar]:hidden">
-              {quickSearchOptions.map((option) => (
-                <Button
-                  className="min-w-fit gap-2"
-                  variant="ghost"
-                  size="tag"
-                  key={option.title}
-                  asChild
-                >
-                  <Link href={`/barbershops?service=${option.title}`}>
-                    <Image
-                      src={option.imageUrl}
-                      alt={option.title}
-                      height={16}
-                      width={16}
-                    />
-                    {option.title}
-                  </Link>
-                </Button>
-              ))}
-            </div>
-
-            <div className="relative mt-6 h-[150px] w-full xl:hidden">
-              <Image
-                src="/banner-01.png"
-                alt="Agende nos melhores com FSW Barber"
-                fill
-                className="rounded-xl object-cover"
-              />
-            </div>
-
-            {confirmedBookings.length > 0 && (
-              <>
-                <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 xl:mb-5 xl:mt-9 xl:text-sm">
-                  Agendamentos
-                </h2>
-                <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-                  {confirmedBookings.map((booking) => (
-                    <BookingItem
-                      key={booking.id}
-                      booking={JSON.parse(JSON.stringify(booking))}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-
-          <div className="xl:py-16">
-            <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 xl:mb-5 xl:mt-0 xl:text-sm">
-              Recomendados
-            </h2>
-            <div className="flex gap-4 overflow-auto xl:gap-5 [&::-webkit-scrollbar]:hidden">
-              {barbershops.map((barbershop) => (
-                <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-              ))}
+            <div className="xl:py-16">
+              <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 xl:mb-5 xl:mt-0 xl:text-sm">
+                Recomendados
+              </h2>
+              <div className="flex gap-4 overflow-auto xl:gap-5 [&::-webkit-scrollbar]:hidden">
+                {barbershops.map((barbershop) => (
+                  <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
