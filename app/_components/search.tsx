@@ -11,7 +11,7 @@ import { SearchIcon } from "lucide-react"
 
 const formSchema = z.object({
   title: z.string().trim().min(1, {
-    message: "Digite algo para buscar",
+    message: "",
   }),
 })
 
