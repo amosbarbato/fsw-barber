@@ -148,7 +148,7 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
       toast.success("Reserva criada com sucesso!", {
         action: {
           label: "Ver agendamentos",
-          onClick: () => router.push("/booking"),
+          onClick: () => router.push("/bookings"),
         },
       })
     } catch (error) {
