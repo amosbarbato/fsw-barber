@@ -266,7 +266,7 @@ export const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                       />
                     </div>
                   )}
-                  <SheetFooter className="mt-5 px-5 xl:mt-0">
+                  <SheetFooter className="mt-5 px-5">
                     <Button
                       className="w-full"
                       onClick={handleCreateBooking}
